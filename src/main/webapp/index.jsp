@@ -40,14 +40,12 @@
 </head>
 <body>
 	</br>
-	<center><h1>Hello World!
 <%
-Properties prop = new Properties();
+java.util.Properties prop = new java.util.Properties();
 prop.load(getServletContext().getResourceAsStream("/META-INF/MANIFEST.MF"));
-System.out.println("All attributes:" + prop.stringPropertyNames());
-System.out.println(prop.getProperty("{version}"));	
+String applVersion = prop.getProperty("version"); 
 %>
-	</h1></center>
+	<center><h1>Hello World <%=applVersion%>!</h1></center>
 	</br>
 	</br>
 	</br>
