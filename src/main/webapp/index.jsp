@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>Hello World!</title>
@@ -53,7 +54,7 @@ String applVersion = prop.getProperty("version");
 	<div class="thumbnail">
 		<div class="image">
 			<div class="center">
-				<img src="devops.jpg" >
+				<img src="devops.jpg" alt="devops">
 			</div>
 		</div>
 	</div>
