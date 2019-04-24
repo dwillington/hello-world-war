@@ -46,7 +46,7 @@ java.util.Properties prop = new java.util.Properties();
 prop.load(getServletContext().getResourceAsStream("/META-INF/MANIFEST.MF"));
 String applVersion = prop.getProperty("version"); 
 %>
-	<center><h1>DevOps <%=applVersion%>!</h1></center>
+	<div style="text-align:center"><h1>DevOps <%=applVersion%>!</h1></div>
 	</br>
 	</br>
 	</br>
