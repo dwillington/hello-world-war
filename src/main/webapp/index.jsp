@@ -51,11 +51,14 @@ String applVersion = prop.getProperty("version");
 	</br>
 	</br>
 	</br>
-	<div class="thumbnail">
-		<div class="image">
-			<div class="center">
-				<img src="devops.jpg" alt="devops">
-			</div>
-		</div>
-	</div>
+    <table align="center">
+       <td>
+         <tr>
+           <img src="devops.jpg" alt="devops">
+         </tr>
+         <tr>
+           <img src="jenkins_is_the_hub_CD_Devops.png" alt="devops">
+         </tr>
+       </td>
+    </table>
 </body>
