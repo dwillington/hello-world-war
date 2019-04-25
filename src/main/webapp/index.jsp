@@ -34,7 +34,7 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 100%;
 }
 
 </style>
@@ -48,17 +48,23 @@ String applVersion = prop.getProperty("version");
 %>
 	<div style="text-align:center"><h1>DevOps <%=applVersion%>!</h1></div>
 	</br>
-	</br>
-	</br>
-	</br>
-    <table align="center">
-       <td>
+    <table align="center" style="width:100%">
          <tr>
-           <img src="devops.jpg" alt="devops">
+            <td>
+               <img src="devops.jpg" alt="devops" width="100%">
+            </td>
+            <td>
+                <img src="jenkins_is_the_hub_CD_Devops.png" alt="devops" width="100%">
+            </td>
          </tr>
          <tr>
-           <img src="jenkins_is_the_hub_CD_Devops.png" alt="devops">
+            <td>
+               <img src="cicd-tools.jpg" alt="devops" width="100%">
+            </td>
+            <td>
+                <img src="devops-tools.png" alt="devops" width="100%">
+            </td>
          </tr>
-       </td>
+         </tr>
     </table>
 </body>
