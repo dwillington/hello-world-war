@@ -34,10 +34,12 @@
 	</build>
 
     <distributionManagement>
-          <repository>
+        <snapshotRepository>
             <id>artifactory</id>
-            <url>http://jenkins-master:8081/artifactory/maven</url>
-           </repository>
+            <name>bf389961effb-snapshots</name>
+            <url>http://35.245.107.238:8081/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
     </distributionManagement>
+
 
 </project>
