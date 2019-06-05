@@ -33,4 +33,11 @@
 		</plugins>
 	</build>
 
+    <distributionManagement>
+          <repository>
+            <id>artifactory</id>
+            <url>http://jenkins-master:8081/artifactory/maven</url>
+           </repository>
+    </distributionManagement>
+
 </project>
