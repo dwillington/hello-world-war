@@ -37,7 +37,7 @@
         <snapshotRepository>
             <id>artifactory</id>
             <name>bf389961effb-snapshots</name>
-            <url>http://35.245.107.238:8081/artifactory/libs-snapshot-local</url>
+            <url>http://jenkins-master:8081/artifactory/libs-snapshot-local</url>
         </snapshotRepository>
     </distributionManagement>
 
