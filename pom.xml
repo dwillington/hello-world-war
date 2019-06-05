@@ -23,6 +23,7 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.1.1</version>
 				 <configuration>
+                     <warSourceExcludes>**/web.xml</warSourceExcludes>
 					 <archive>
 						 <manifestEntries>
 							 <version>${project.version}.${env.BUILD_NUMBER}</version>
