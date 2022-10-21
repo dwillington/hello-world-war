@@ -1,4 +1,5 @@
 /target
+/dist/*.war
 .classpath
 .project
 .settings
