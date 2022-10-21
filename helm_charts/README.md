@@ -21,7 +21,8 @@ cd /home/amjada/amjada/helm_charts
 
 helm delete app2-api -n app2
 helm install -n app2 -f /home/amjada/amjada/helm_charts/app2-api/values.yaml app2-api /home/amjada/amjada/helm_charts/app2-api/
-helm upgrade -n app2 -f /home/amjada/amjada/helm_charts/app2-api/values.yaml app2-api /home/amjada/amjada/helm_charts/app2-api/
+helm upgrade -n app2 -f /home/amjada/amjada/helm_charts/app2-api/values.yaml app2-api /home/amjada/amjada/helm_charts/app2-api/ \
+  --set .Chart.version=0.0.1
 
 helm delete app2-web -n app2
 helm install -n app2 -f /home/amjada/amjada/helm_charts/app2-web/values.yaml app2-web /home/amjada/amjada/helm_charts/app2-web/
@@ -51,3 +52,6 @@ gcloud container clusters get-credentials gke-toptal --zone=northamerica-northea
 #--region=northamerica-northeast2
 
 ```
+
+#### Helpful links...
+https://codefresh.io/docs/docs/new-helm/helm-best-practices/#chart-versions-and-appversions<br />
