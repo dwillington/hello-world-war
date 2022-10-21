@@ -30,7 +30,7 @@ app.get('/api/status', function(req, res) {
     }
     var os = require("os");
     var hostname = os.hostname();
-    console.log(hostname);
+    // console.log(hostname);
 
     var data = [{ time: result.rows[0].time, request_uuid: hostname }];
     var dataJSON = JSON.stringify(data);
