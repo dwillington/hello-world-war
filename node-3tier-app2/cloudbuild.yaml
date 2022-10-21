@@ -7,7 +7,7 @@ steps:
     # args: ['push', 'northamerica-northeast2-docker.pkg.dev/silicon-pointer-146802/toptal-docker/app2-api']
 
   - name: 'gcr.io/$PROJECT_ID/helm'
-    args: ['upgrade', '-n', 'app2', '-f', '/workspace/node-3tier-app2/heml_charts/app2-api/values.yaml', 'app2-api', '/workspace/node-3tier-app2/heml_charts/app2-api']
+    args: ['upgrade', '-n', 'app2', '-f', './node-3tier-app2/heml_charts/app2-api/values.yaml', 'app2-api', './node-3tier-app2/heml_charts/app2-api']
     env:
     - 'CLOUDSDK_COMPUTE_ZONE=northamerica-northeast2-a'
     - 'CLOUDSDK_CONTAINER_CLUSTER=gke-toptal'
