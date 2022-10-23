@@ -17,5 +17,5 @@ steps:
            '-t', 'northamerica-northeast2-docker.pkg.dev/silicon-pointer-146802/toptal-docker/app2-web:$SHORT_SHA', 
            '-t', 'northamerica-northeast2-docker.pkg.dev/silicon-pointer-146802/toptal-docker/app2-web:latest', 
            'node-3tier-app2/web']
-  - name: 'northamerica-northeast2-docker.pkg.dev/silicon-pointer-146802/toptal-docker/app2-web:latest' # Docker Push
+  - name: 'gcr.io/cloud-builders/docker' # Docker Push
     args: ['push', 'northamerica-northeast2-docker.pkg.dev/silicon-pointer-146802/toptal-docker/app2-web', '--all-tags']

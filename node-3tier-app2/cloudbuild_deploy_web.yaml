@@ -1,0 +1,7 @@
+steps:
+  # Helm Upgrade
+  - name: 'gcr.io/$PROJECT_ID/helm'
+    args: ['upgrade', '-n', 'app2', '-f', 'node-3tier-app2/helm_charts/app2-api/values.yaml', 'app2-api', 'node-3tier-app2/helm_charts/app2-api', '--force']
+    env:
+    - 'CLOUDSDK_COMPUTE_ZONE=northamerica-northeast2-a'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=gke-toptal'
