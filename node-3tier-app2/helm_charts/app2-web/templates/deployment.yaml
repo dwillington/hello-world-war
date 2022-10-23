@@ -51,7 +51,7 @@ spec:
           - name: "PORT"
             value: "3000"
           - name: "API_HOST"
-            value: "http://app2-api.app2"
+            value: "http://app2-api"
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

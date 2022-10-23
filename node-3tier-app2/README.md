@@ -37,5 +37,5 @@ curl http://localhost:3000/api/status
 
 #### Helpful links...
 https://helm.sh/docs/intro/install/<br />
-https://cloud.google.com/kubernetes-engine/docs/concepts/ingress<br />
 If you don't specify a default backend, GKE provides a default backend that returns 404. This is created as a default-http-backend<br />
+https://cloud.google.com/kubernetes-engine/docs/concepts/ingress<br />
