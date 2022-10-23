@@ -6,6 +6,8 @@ steps:
     args: ['build', 
            '-t', 'northamerica-northeast2-docker.pkg.dev/silicon-pointer-146802/toptal-docker/app2-api:$SHORT_SHA', 
            '-t', 'northamerica-northeast2-docker.pkg.dev/silicon-pointer-146802/toptal-docker/app2-api:latest', 
+           '--cache-from',
+           'northamerica-northeast2-docker.pkg.dev/silicon-pointer-146802/toptal-docker/app2-api:latest', 
            'node-3tier-app2/api']
   - name: 'gcr.io/cloud-builders/docker' # Docker Push
     args: ['push', 'northamerica-northeast2-docker.pkg.dev/silicon-pointer-146802/toptal-docker/app2-api', '--all-tags']
@@ -16,6 +18,8 @@ steps:
     args: ['build', 
            '-t', 'northamerica-northeast2-docker.pkg.dev/silicon-pointer-146802/toptal-docker/app2-web:$SHORT_SHA', 
            '-t', 'northamerica-northeast2-docker.pkg.dev/silicon-pointer-146802/toptal-docker/app2-web:latest', 
+           '--cache-from',
+           'northamerica-northeast2-docker.pkg.dev/silicon-pointer-146802/toptal-docker/app2-web:latest', 
            'node-3tier-app2/web']
   - name: 'gcr.io/cloud-builders/docker' # Docker Push
     args: ['push', 'northamerica-northeast2-docker.pkg.dev/silicon-pointer-146802/toptal-docker/app2-web', '--all-tags']
