@@ -54,7 +54,7 @@ do
   arrIN=(${web//\<p/ })
   echo ${arrIN[6]}
   echo ""
-	sleep 2
+	sleep 1
 done
 
 
