@@ -26,10 +26,10 @@ helm install -n app2 -f /home/amjada/amjada/node-3tier-app2/helm_charts/app2-api
 helm upgrade -n app2 -f /home/amjada/amjada/node-3tier-app2/helm_charts/app2-api/values.yaml app2-api /home/amjada/amjada/node-3tier-app2/helm_charts/app2-api/
 
 helm -n app2 delete app2-web
-helm install -n app2 -f /home/amjada/amjada/node-3tier-app2/helm_charts/app2-web/values.yaml app2-web /home/amjada/amjada/node-3tier-app2/helm_charts/app2-web/
+helm -n app2 upgrade --install -f /home/amjada/amjada/node-3tier-app2/helm_charts/app2-web/values.yaml app2-web /home/amjada/amjada/node-3tier-app2/helm_charts/app2-web/ --force --recreate-pods
 
 kubectl -n app2 get pod
-kubectl -n app2 describe pod
+kubectl -n app2 describe pod app2-web-756bd4cccf-zfqlt
 kubectl -n app2 get service
 kubectl -n app2 describe service
 kubectl -n app2 get ingress
