@@ -29,8 +29,8 @@ helm -n app2 upgrade -f /home/amjada/amjada/node-3tier-app2/helm_charts/app2-api
 
 helm -n app2 delete app2-web
 helm -n app2 install -f /home/amjada/amjada/node-3tier-app2/helm_charts/app2-web/values.yaml app2-web /home/amjada/amjada/node-3tier-app2/helm_charts/app2-web/
-helm -n app2 upgrade -f /home/amjada/amjada/node-3tier-app2/helm_charts/app2-web/values.yaml app2-web /home/amjada/amjada/node-3tier-app2/helm_charts/app2-web/ \
-  --force --recreate-pods
+helm -n app2 upgrade -f /home/amjada/amjada/node-3tier-app2/helm_charts/app2-web/values.yaml app2-web /home/amjada/amjada/node-3tier-app2/helm_charts/app2-web/ --force
+ --recreate-pods
 
 kubectl -n app2 get pod
 kubectl -n app2 describe pod app2-web-756bd4cccf-zfqlt
@@ -51,7 +51,7 @@ do
   curl 34.117.57.219/api/status
   echo ""
   web=$(curl -s 34.117.57.219/)
-  arrIN=(${web//<p>/ })
+  arrIN=(${web//\<p/ })
   echo ${arrIN[6]}
   echo ""
 	sleep 2
