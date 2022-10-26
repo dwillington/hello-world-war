@@ -19,19 +19,20 @@
 cd /home/amjada/amjada/node-3tier-app2/helm_charts
 # helm -n app2 delete app2-ingress
 # helm -n app2 install -f /home/amjada/amjada/node-3tier-app2/helm_charts/app2-ingress/values.yaml app2-ingress /home/amjada/amjada/node-3tier-app2/helm_charts/app2-ingress/
-helm -n app2 upgrade -f /home/amjada/amjada/node-3tier-app2/helm_charts/app2-ingress/values.yaml app2-ingress /home/amjada/amjada/node-3tier-app2/helm_charts/app2-ingress/ \
-  --force --recreate-pods
+helm -n app2 upgrade -f /home/amjada/amjada/node-3tier-app2/helm_charts/app2-ingress/values.yaml app2-ingress /home/amjada/amjada/node-3tier-app2/helm_charts/app2-ingress/ --force
 
 helm -n app2 delete app2-api
 helm -n app2 install -f /home/amjada/amjada/node-3tier-app2/helm_charts/app2-api/values.yaml app2-api /home/amjada/amjada/node-3tier-app2/helm_charts/app2-api/
-helm -n app2 upgrade -f /home/amjada/amjada/node-3tier-app2/helm_charts/app2-api/values.yaml app2-api /home/amjada/amjada/node-3tier-app2/helm_charts/app2-api/ \
-  --force --recreate-pods
+helm -n app2 upgrade -f /home/amjada/amjada/node-3tier-app2/helm_charts/app2-api/values.yaml app2-api /home/amjada/amjada/node-3tier-app2/helm_charts/app2-api/
 
 helm -n app2 delete app2-web
 helm -n app2 install -f /home/amjada/amjada/node-3tier-app2/helm_charts/app2-web/values.yaml app2-web /home/amjada/amjada/node-3tier-app2/helm_charts/app2-web/
-helm -n app2 upgrade -f /home/amjada/amjada/node-3tier-app2/helm_charts/app2-web/values.yaml app2-web /home/amjada/amjada/node-3tier-app2/helm_charts/app2-web/ --force
- --recreate-pods
+helm -n app2 upgrade -f /home/amjada/amjada/node-3tier-app2/helm_charts/app2-web/values.yaml app2-web /home/amjada/amjada/node-3tier-app2/helm_charts/app2-web/
 
+
+
+--set image.tag=fe67557
+--set image.tag=5b111f0
 kubectl -n app2 get pod
 kubectl -n app2 describe pod app2-web-756bd4cccf-zfqlt
 kubectl -n app2 get service
@@ -45,6 +46,7 @@ kubectl -n app2 exec -it xxx   -- bash
 kubectl -n app2 delete pods xxx
 
 ### VERIFY
+# <!DOCTYPE html><html><head><title>3tier App</title><link rel="stylesheet" href="/stylesheets/style.css"></head><body><h1>3tier App</h1><p>Welcome!, it's 2022-10-25T21:59:55.094Z</p><p><img src="/images/nyan.gif" title="nyan cat"></p><pre>app2-api-7dbb85fff-nmv98</pre></body></html>
 #!/bin/bash
 while :
 do
@@ -52,7 +54,11 @@ do
   echo ""
   web=$(curl -s 34.117.57.219/)
   arrIN=(${web//\<p/ })
-  echo ${arrIN[6]}
+  if [[ ${arrIN[6]} == *"Error"* ]]; then
+    echo "${arrIN[6]} ####################################################"
+  else
+    echo ${arrIN[6]}
+  fi
   echo ""
 	sleep 1
 done
