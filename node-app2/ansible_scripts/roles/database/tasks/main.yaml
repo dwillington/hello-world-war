@@ -1,0 +1,47 @@
+- name: create a instance
+  gcp_sql_instance:
+    name: "{{db_instance_name}}"
+    database_version: "POSTGRES_9_6"
+    settings:
+      ip_configuration:
+        authorized_networks:
+        - name: centos_7
+          value: "{{ centos_7_ip }}"
+      tier: db-custom-1-3840 # https://cloud.google.com/sql/docs/mysql/instance-settings
+      backup_configuration:
+        enabled: yes
+    region: "{{ region }}"
+    project: "{{ project_id }}"    
+    auth_kind: serviceaccount
+    service_account_file: "{{ credential }}"
+    state: present
+  register: instance
+
+# - name: create a database
+  # gcp_sql_database:
+    # name: "{{ db_name }}"
+    # charset: utf8
+    # instance: "{{db_instance_name}}"
+    # project: "{{ project_id }}"
+    # auth_kind: serviceaccount
+    # service_account_file: "{{ credential }}"
+    # state: present
+
+# - name: create a user
+  # gcp_sql_user:
+    # name: postgres
+    # password: "{{db_user_password}}"
+    # host: "ignored_for_postgres"
+    # instance:
+      # name: "{{db_instance_name}}"
+    # project: "{{ project_id }}"
+    # auth_kind: serviceaccount
+    # service_account_file: "{{ credential }}"
+    # state: present
+
+- name: get info on a database
+  gcp_sql_database_info:
+    instance: "{{db_instance_name}}"
+    project: "{{ project_id }}"
+    auth_kind: serviceaccount
+    service_account_file: "{{ credential }}"

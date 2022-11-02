@@ -1,0 +1,9 @@
+---
+- name: create db
+  hosts: localhost
+  gather_facts: false
+  environment:   # cred for serviceaccount.json
+    GOOGLE_CREDENTIALS: "{{ credential }}"
+
+  roles:
+    - database

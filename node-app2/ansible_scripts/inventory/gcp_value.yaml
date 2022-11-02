@@ -1,0 +1,31 @@
+---
+all:
+ vars:
+   ansible_python_interpreter: /usr/bin/python3
+
+   zone: northamerica-northeast2-a
+   region: northamerica-northeast2
+   project_id: silicon-pointer-146802
+   gcloud_sa_path: "silicon-pointer-146802-42def16a15a9.json"
+   gcloud_service_account: "app2-302@silicon-pointer-146802.iam.gserviceaccount.com"
+   credential: "{{lookup('env','HOME') }}/{{gcloud_sa_path}}"
+   # Dev VM Information
+   centos_7_ip: 34.130.53.245
+
+   # Cluster Information
+   cluster_name: "gke-poptal" # Name of the cluster
+   initial_node_count: 1   # Number of node for cluster
+   disk_size_gb: 100
+   disk_type: "pd-ssd"  # disk types 
+   machine_type: "e2-medium"  # image types
+
+   # DB Information
+   db_instance_name: app2-instance
+   db_name: app2-db
+   db_user_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          34663262613962363033633163616335663862326131363738646536356565616430613138323337
+          3162353535363461306332396565626563303939383562370a366530303038626366356233663362
+          62363264363464353631666135663662646533626238393163353432363364373038323137356636
+          6564376239353537610a663432396664613935363334656430356230313639346138666534333337
+          36613263383233613432363263666138326338333962646366643733333463323261
